@@ -20,6 +20,13 @@ $produtos = [
 
 <body>
 
+    <?php $total = 0;
+    foreach ($produtos as $produto) {
+        $total += $produto["preco"] * $produto["estoque"];
+    }
+    $quantidade = count($produtos);
+    ?>
+
     <h1>Lista de produtos</h1>
 
     <table border="1" cellpadding="6">
@@ -40,6 +47,10 @@ $produtos = [
                     <td><?= $item["estoque"] ?></td>
                     <td><?= $item["estoque"] > 0 ? "Disponível" : "Esgotado" ?></td>
                 </tr>
+                <p>
+                    <?= $quantidade ?> produtos cadastrados.
+                    Valor total em estoque: R$ <?= number_format($total, 2, ",", ".") ?>
+                </p>
             <?php endforeach; ?>
         </tbody>
 
