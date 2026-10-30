@@ -28,6 +28,7 @@ $produtos = [
                 <th>Produto</th>
                 <th>Preço</th>
                 <th>Estoque</th>
+                <th>Status</th>
             </tr>
         </thead>
 
@@ -37,6 +38,7 @@ $produtos = [
                     <td><?= htmlspecialchars($item["nome"]) ?></td>
                     <td>R$ <?= number_format($item["preco"], 2, ",", ".") ?></td>
                     <td><?= $item["estoque"] ?></td>
+                    <td><?= $item["estoque"] > 0 ? "Disponível" : "Esgotado" ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
