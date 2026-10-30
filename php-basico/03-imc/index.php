@@ -24,3 +24,20 @@ if ($imc < 18.5) {
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC</title>
+</head>
+<h1>Calculadora de IMC</h1>
+<p>Peso: <?php echo $peso ?></p>
+<p>Altura: <? echo $altura ?></p>
+<p>IMC: <strong><?php echo $imc ?></strong></p>
+<p>Classificação: <strong><?php echo $classe?></strong></p>
+<body>
+    
+</body>
+</html>
