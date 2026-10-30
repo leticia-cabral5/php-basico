@@ -1,8 +1,8 @@
 <?php
 date_default_timezone_set("America/Sao_Paulo");
-
 $data = date("d/m/Y");
 $hora = date('H:i:s');
+$msg = "Hoje é " . $data . " e agora são " . $hora . "." ;
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -13,7 +13,6 @@ $hora = date('H:i:s');
 </head>
 <body>
     <h1>Data e hpra do servidor</h1>
-    <p>Hoje é <strong><?php echo $data ?></strong></p>
-    <p>Agora são <strong><?php echo $hora ?></strong></p>
+    <p><?php echo $msg ?></p>
 </body>
 </html>
