@@ -7,6 +7,18 @@ $produtos = [
     ["nome" => "Mousepad", "preco" => 39.90, "estoque" => 25],
     ["nome" => "Pen drive 32GB", "preco" => 29.90, "estoque" => 40],
 ];
+
+$total = 0;
+
+foreach ($produtos as $produto) {
+    $total += $produto["preco"] * $produto["estoque"];
+}
+
+$quantidade = count($produtos);
+
+function formatarPreco(float $valor): string {
+    return "R$ " . number_format($valor, 2, ",", ".");
+}
 ?>
 
 <!DOCTYPE html>
@@ -19,13 +31,6 @@ $produtos = [
 </head>
 
 <body>
-
-    <?php $total = 0;
-    foreach ($produtos as $produto) {
-        $total += $produto["preco"] * $produto["estoque"];
-    }
-    $quantidade = count($produtos);
-    ?>
 
     <h1>Lista de produtos</h1>
 
@@ -43,19 +48,18 @@ $produtos = [
             <?php foreach ($produtos as $item): ?>
                 <tr>
                     <td><?= htmlspecialchars($item["nome"]) ?></td>
-                    <td>R$ <?= number_format($item["preco"], 2, ",", ".") ?></td>
+                    <td><?= formatarPreco($item["preco"]) ?></td>
                     <td><?= $item["estoque"] ?></td>
                     <td><?= $item["estoque"] > 0 ? "Disponível" : "Esgotado" ?></td>
                 </tr>
-                <p>
-                    <?= $quantidade ?> produtos cadastrados.
-                    Valor total em estoque: R$ <?= number_format($total, 2, ",", ".") ?>
-                </p>
             <?php endforeach; ?>
         </tbody>
-
     </table>
 
-</body>
+    <p>
+        <?= $quantidade ?> produtos cadastrados.
+        Valor total em estoque: <?= formatarPreco($total) ?>
+    </p>
 
+</body>
 </html>
